@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbf7f4">
+    <meta name="description" content="Klinik Pratama Riyena — klinik kecantikan dengan layanan laser, HIFU, dan perawatan kulit di Jakarta, Kendari, dan Bengkulu.">
+    <title>Klinik Riyena — Friendly Beauty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #32242f;
+        --muted: #776b75;
+        --plum: #632c53;
+        --berry: #a34478;
+        --rose: #f2dce7;
+        --cream: #fbf7f4;
+        --white: #fffdfc;
+        --line: #eadfe5;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "DM Sans", Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+      .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--berry);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .17em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
+
+      header {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        right: 0;
+        left: 0;
+        color: var(--white);
+      }
+      .nav {
+        display: flex;
+        height: 90px;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgb(255 255 255 / 20%);
+      }
+      .brand { display: inline-flex; align-items: center; gap: 12px; }
+      .brand-mark {
+        display: grid;
+        width: 43px;
+        height: 43px;
+        place-items: center;
+        border: 1px solid rgb(255 255 255 / 65%);
+        border-radius: 50%;
+        color: #f2bdd7;
+        font-family: var(--serif);
+        font-size: 24px;
+      }
+      .brand-name { display: block; font-family: var(--serif); font-size: 19px; line-height: 1.2; }
+      .brand-tag { display: block; margin-top: 7px; font-size: 9px; line-height: 1.4; letter-spacing: .18em; opacity: .75; }
+      .nav-links { display: flex; align-items: center; gap: 34px; font-size: 12px; }
+      .nav-links > a:not(.nav-cta) { opacity: .86; transition: opacity .2s; }
+      .nav-links > a:not(.nav-cta):hover { opacity: 1; }
+      .nav-cta, .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 0 20px;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        background: var(--berry);
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        transition: transform .2s, background .2s;
+      }
+      .nav-cta { min-height: 39px; padding: 0 16px; }
+      .button:hover, .nav-cta:hover { transform: translateY(-2px); background: var(--plum); }
+      .menu-toggle { display: none; border: 0; background: transparent; color: white; font-size: 25px; cursor: pointer; }
+
+      .hero {
+        position: relative;
+        display: flex;
+        min-height: 690px;
+        align-items: center;
+        overflow: hidden;
+        background: #3b2637;
+        color: white;
+      }
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgb(38 22 37 / 87%) 0%, rgb(49 28 46 / 71%) 48%, rgb(49 28 46 / 22%) 100%),
+          linear-gradient(0deg, rgb(38 22 37 / 35%), transparent 55%),
+          url("https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=2000&q=85") center 43% / cover;
+        content: "";
+      }
+      .hero-content { position: relative; z-index: 1; padding-top: 78px; }
+      .hero .eyebrow { color: #f1b8d5; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, .serif { font-family: var(--serif); font-weight: 500; }
+      h1 { max-width: 700px; margin: 30px 0 22px; font-size: clamp(48px, 7vw, 82px); line-height: 1.1; letter-spacing: -.04em; }
+      h1 span { color: #efb8d3; font-style: italic; }
+      .hero-copy { max-width: 440px; margin-bottom: 34px; color: rgb(255 255 255 / 79%); font-size: 14px; line-height: 1.9; }
+      .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; }
+      .button-outline { border-color: rgb(255 255 255 / 55%); background: transparent; }
+      .button-outline:hover { background: rgb(255 255 255 / 12%); }
+      .hero-note { margin-top: 61px; color: rgb(255 255 255 / 65%); font-size: 11px; letter-spacing: .08em; }
+      .hero-note strong { color: white; font-weight: 600; }
+      .hero-note span { margin: 0 12px; color: #efb8d3; }
+
+      .intro { padding: 92px 0 95px; }
+      .intro-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 100px; }
+      .intro-visual {
+        position: relative;
+        min-height: 370px;
+        background: linear-gradient(160deg, rgb(99 44 83 / 10%), rgb(99 44 83 / 2%)), url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80") center / cover;
+      }
+      .since-card {
+        position: absolute;
+        right: -25px;
+        bottom: 25px;
+        width: 150px;
+        padding: 20px;
+        background: var(--plum);
+        color: white;
+        text-align: center;
+      }
+      .since-card strong { display: block; font-family: var(--serif); font-size: 38px; font-weight: 500; }
+      .since-card span { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+      h2 { margin: 15px 0 16px; font-size: clamp(34px, 4vw, 48px); line-height: 1.15; letter-spacing: -.025em; }
+      .intro-copy { color: var(--muted); font-size: 14px; line-height: 1.9; }
+      .text-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 15px; color: var(--plum); font-size: 12px; font-weight: 700; }
+      .text-link span { font-size: 18px; transition: transform .2s; }
+      .text-link:hover span { transform: translateX(4px); }
+
+      .services { padding: 88px 0 95px; background: #f3e9ed; }
+      .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 37px; }
+      .section-heading h2 { margin-bottom: 0; }
+      .section-heading p { max-width: 330px; margin-bottom: 4px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+      .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .service-card { min-height: 360px; background: var(--white); }
+      .service-image { height: 205px; background-position: center; background-size: cover; }
+      .service-image.laser { background-image: url("https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80"); }
+      .service-image.skin { background-image: url("https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80"); }
+      .service-image.glow { background-image: url("https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=800&q=80"); }
+      .service-body { padding: 23px 24px 25px; }
+      .service-number { color: var(--berry); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+      .service-body h3 { margin: 9px 0 8px; font-family: var(--serif); font-size: 23px; font-weight: 500; }
+      .service-body p { margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+      .services-foot { margin: 21px 0 0; color: var(--muted); font-size: 11px; }
+
+      .locations { padding: 92px 0 100px; }
+      .locations .section-heading { margin-bottom: 35px; }
+      .location-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+      .location-card { min-height: 215px; padding: 24px 21px; border: 1px solid var(--line); background: var(--white); }
+      .location-city { color: var(--berry); font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+      .location-card h3 { margin: 12px 0 10px; font-family: var(--serif); font-size: 20px; font-weight: 500; }
+      .location-card p { min-height: 54px; margin-bottom: 16px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+      .location-card a { color: var(--plum); font-size: 11px; font-weight: 700; }
+      .location-card a:hover { text-decoration: underline; }
+
+      .contact { padding: 70px 0; background: var(--plum); color: white; }
+      .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 34px; }
+      .contact .eyebrow { color: #efb8d3; }
+      .contact h2 { max-width: 570px; margin: 12px 0 0; font-size: clamp(32px, 4vw, 45px); }
+      .contact .button { flex: 0 0 auto; background: white; color: var(--plum); }
+      .contact .button:hover { background: #f4dce8; }
+      .contact-actions { display: flex; flex: 0 0 auto; flex-direction: column; align-items: flex-start; gap: 11px; }
+      .contact-secondary { color: rgb(255 255 255 / 78%); font-size: 11px; }
+      .contact-secondary:hover { color: white; text-decoration: underline; }
+      footer { padding: 27px 0; background: #291c28; color: rgb(255 255 255 / 65%); font-size: 10px; }
+      .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .socials { display: flex; flex-wrap: wrap; gap: 18px; }
+      .socials a:hover { color: white; }
+
+      @media (max-width: 760px) {
+        .wrap { width: min(100% - 36px, 560px); }
+        .nav { height: 75px; }
+        .menu-toggle { display: block; }
+        .nav-links {
+          position: absolute;
+          top: 75px;
+          right: 18px;
+          left: 18px;
+          display: none;
+          align-items: stretch;
+          gap: 0;
+          padding: 10px 18px 18px;
+          background: #392538;
+        }
+        .nav-links.open { display: flex; flex-direction: column; }
+        .nav-links > a:not(.nav-cta) { padding: 13px 0; }
+        .nav-cta { margin-top: 8px; }
+        .hero { min-height: 680px; }
+        .hero::before { background-position: 58% center; }
+        .hero-content { padding-top: 58px; }
+        h1 { margin-top: 26px; font-size: clamp(47px, 12vw, 68px); }
+        .hero-note { margin-top: 46px; line-height: 2; }
+        .intro, .locations { padding: 68px 0; }
+        .intro-grid { grid-template-columns: 1fr; gap: 43px; }
+        .intro-visual { min-height: 320px; margin-right: 14px; }
+        .since-card { right: -14px; }
+        .services { padding: 68px 0; }
+        .section-heading { align-items: start; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+        .service-grid { grid-template-columns: 1fr; gap: 14px; }
+        .service-card { min-height: auto; }
+        .service-image { height: 220px; }
+        .location-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .location-card { min-height: 205px; padding: 19px 15px; }
+        .contact { padding: 56px 0; }
+        .contact-inner { align-items: start; flex-direction: column; }
+        .contact-actions { align-items: stretch; }
+        .footer-inner { align-items: start; flex-direction: column; }
+      }
+      @media (max-width: 390px) {
+        .location-grid { grid-template-columns: 1fr; }
+        .hero-actions { align-items: stretch; flex-direction: column; }
+        .hero-actions .button { width: 100%; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav wrap" aria-label="Navigasi utama">
+        <a class="brand" href="#beranda" aria-label="Klinik Riyena, beranda">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span><span class="brand-name">Klinik Riyena</span><span class="brand-tag">FRIENDLY BEAUTY</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">☰</button>
+        <div class="nav-links">
+          <a href="#tentang">Tentang</a>
+          <a href="#perawatan">Perawatan</a>
+          <a href="#lokasi">Lokasi</a>
+          <a class="nav-cta" href="https://wa.me/6281311221216" target="_blank" rel="noreferrer">Konsultasi via WhatsApp <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="beranda">
+        <div class="wrap hero-content">
+          <span class="eyebrow">Klinik Pratama Riyena</span>
+          <h1>Rawat dirimu,<br><span>cintai kulitmu.</span></h1>
+          <p class="hero-copy">Temukan perawatan kulit yang terasa lebih personal. Tim Klinik Riyena siap membantu Anda mengenal kebutuhan kulit dan pilihan perawatan yang sesuai.</p>
+          <div class="hero-actions">
+            <a class="button" href="#perawatan">Jelajahi perawatan <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#lokasi">Temukan klinik kami</a>
+          </div>
+          <p class="hero-note"><strong>Friendly Beauty</strong><span>·</span> Melayani sejak 2016 <span>·</span> Jakarta, Kendari &amp; Bengkulu</p>
+        </div>
+      </section>
+
+      <section class="intro" id="tentang">
+        <div class="wrap intro-grid">
+          <div class="intro-visual" role="img" aria-label="Suasana perawatan kecantikan">
+            <div class="since-card"><strong>2016</strong><span>Teman cantikmu</span></div>
+          </div>
+          <div>
+            <span class="eyebrow">Kenali Riyena</span>
+            <h2>Kecantikan yang dimulai dari rasa nyaman.</h2>
+            <p class="intro-copy">Klinik Pratama Riyena hadir dengan semangat <em>Friendly Beauty</em> — mendampingi perjalanan perawatan Anda dengan pendekatan yang hangat dan pilihan layanan untuk kebutuhan kulit yang beragam.</p>
+            <p class="intro-copy">Kunjungi salah satu cabang kami di Jakarta, Kendari, atau Bengkulu untuk mendapatkan informasi dan berkonsultasi langsung mengenai perawatan yang tepat untuk Anda.</p>
+            <a class="text-link" href="#lokasi">Lihat lokasi klinik <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="perawatan">
+        <div class="wrap">
+          <div class="section-heading">
+            <div><span class="eyebrow">Pilihan perawatan</span><h2>Waktunya merawat diri.</h2></div>
+            <p>Kenali pilihan layanan kami, lalu konsultasikan kebutuhan kulit Anda dengan tim klinik.</p>
+          </div>
+          <div class="service-grid">
+            <article class="service-card">
+              <div class="service-image laser" role="img" aria-label="Perawatan kecantikan dengan teknologi"></div>
+              <div class="service-body"><span class="service-number">01 — TEKNOLOGI</span><h3>Laser &amp; HIFU</h3><p>Pilihan perawatan berbasis teknologi. Tanyakan kepada tim kami tentang jenis layanan yang tersedia.</p></div>
+            </article>
+            <article class="service-card">
+              <div class="service-image skin" role="img" aria-label="Perawatan kulit wajah"></div>
+              <div class="service-body"><span class="service-number">02 — PERAWATAN KULIT</span><h3>Perawatan non-laser</h3><p>Jelajahi pilihan perawatan kulit non-laser dan temukan opsi yang sesuai dengan kebutuhan Anda.</p></div>
+            </article>
+            <article class="service-card">
+              <div class="service-image glow" role="img" aria-label="Produk perawatan kulit"></div>
+              <div class="service-body"><span class="service-number">03 — PERAWATAN LANJUTAN</span><h3>Advanced &amp; ProYellow</h3><p>ProYellow Laser disebut sebagai salah satu layanan untuk masalah jerawat, pigmentasi, dan mencerahkan kulit.</p></div>
+            </article>
+          </div>
+          <p class="services-foot">Pilihan dan kesesuaian perawatan dapat berbeda untuk setiap orang. Silakan berkonsultasi dengan klinik sebelum memilih layanan.</p>
+        </div>
+      </section>
+
+      <section class="locations" id="lokasi">
+        <div class="wrap">
+          <div class="section-heading">
+            <div><span class="eyebrow">Temukan kami</span><h2>Lebih dekat denganmu.</h2></div>
+            <p>Kunjungi cabang Klinik Riyena yang paling dekat dengan Anda.</p>
+          </div>
+          <div class="location-grid">
+            <article class="location-card">
+              <span class="location-city">Jakarta Barat</span>
+              <h3>Puri Mansion</h3>
+              <p>Ruko Puri Mansion Blok A No. 51, Jakarta Barat</p>
+              <a href="https://g.co/kgs/yhRaQVH" target="_blank" rel="noreferrer">Lihat peta <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="location-card">
+              <span class="location-city">Jakarta Selatan</span>
+              <h3>Kemang</h3>
+              <p>Jl. Kemang Timur No. 94, Jakarta Selatan</p>
+              <a href="https://g.co/kgs/4Ww4Hn9" target="_blank" rel="noreferrer">Lihat peta <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="location-card">
+              <span class="location-city">Kendari</span>
+              <h3>Kemaraya</h3>
+              <p>Jl. Bunga Teratai No. 3, Kemaraya, Kota Kendari</p>
+              <a href="https://g.co/kgs/Fk8Nw9g" target="_blank" rel="noreferrer">Lihat peta <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="location-card">
+              <span class="location-city">Bengkulu</span>
+              <h3>Nusa Indah</h3>
+              <p>Jl. Batang Hari No. 2, Nusa Indah, Kec. Ratu Agung, Kota Bengkulu</p>
+              <a href="https://g.co/kgs/WzVozEo" target="_blank" rel="noreferrer">Lihat peta <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact">
+        <div class="wrap contact-inner">
+          <div><span class="eyebrow">Mulai dengan konsultasi</span><h2>Punya pertanyaan tentang perawatan?</h2></div>
+          <div class="contact-actions">
+            <a class="button" href="https://wa.me/6281311221216" target="_blank" rel="noreferrer">Hubungi kami via WhatsApp <span aria-hidden="true">↗</span></a>
+            <a class="contact-secondary" href="https://wa.me/628235232093" target="_blank" rel="noreferrer">Atau hubungi 0823 5232 2093 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <span>© <span id="year">2026</span> Klinik Pratama Riyena · Friendly Beauty</span>
+        <div class="socials" aria-label="Instagram Klinik Riyena">
+          <a href="https://www.instagram.com/klinikriyena_official/" target="_blank" rel="noreferrer">Jakarta Barat</a>
+          <a href="https://www.instagram.com/klinikriyena_kemang/" target="_blank" rel="noreferrer">Kemang</a>
+          <a href="https://www.instagram.com/klinikriyena_kendari/" target="_blank" rel="noreferrer">Kendari</a>
+          <a href="https://www.instagram.com/klinikriyena_bengkulu/" target="_blank" rel="noreferrer">Bengkulu</a>
+          <a href="mailto:cs@klinikriyena.biz">Email</a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Tutup menu" : "Buka menu");
+      });
+
+      navLinks.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Buka menu");
+        }
+      });
+
+      document.querySelector("#year").textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
